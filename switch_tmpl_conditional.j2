@@ -1,0 +1,16 @@
+hostname {{ host_name }}
+ip domain-name {{ domain_name }}
+!
+{%- if apache %}
+{%- for id in vlans2 %}
+vlan {{ id }}
+   name {{vlans2[id]}}
+!
+{%- endfor  %}
+{%- else %}
+{%- for id in vlans1 %}
+vlan {{ id }}
+   name {{vlans1[id]}}
+!
+{%- endfor  %}
+{%- endif %}

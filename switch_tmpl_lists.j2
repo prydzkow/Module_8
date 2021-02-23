@@ -1,0 +1,13 @@
+hostname {{ host_name }}
+ip domain-name {{ domain_name }}
+!
+{%- for id in vlans %}
+vlan {{ id }}
+   name {{vlans[id]}}
+!
+{%- endfor  %}
+{%- for int in interfaces %}
+interface {{ int }}
+   no shutdown
+!
+{%- endfor  %}

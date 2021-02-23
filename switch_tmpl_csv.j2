@@ -1,0 +1,8 @@
+hostname {{ host_name }}
+ip domain-name {{ domain_name }}
+!
+{%- for id in vlan_ids %}
+vlan {{ id }}
+  name {{ vlan_names[loop.index-1] }}
+!
+{%- endfor  %}
